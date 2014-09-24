@@ -88,9 +88,16 @@ object BlockToText {
     }
   }
 
+  private def removeImages(doc: Document): Unit = {
+    for (list <- doc.select("figure.element-image").iterator()) {
+      list.remove()
+    }
+  }
+
   def apply(html: String) = Try {
     val doc = Jsoup.parse(html)
 
+    removeImages(doc)
     addPaddingToBreaks(doc)
     addPipesAfterHeaders(doc)
     addFullStops(doc)
