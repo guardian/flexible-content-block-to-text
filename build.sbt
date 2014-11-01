@@ -9,13 +9,15 @@ organization := "com.gu"
 
 scalaVersion := "2.10.4"
 
+crossScalaVersions := Seq("2.10.4", "2.11.4")
+
 name := "flexible-content-block-to-text"
 
 resolvers ++= Seq("snapshots", "releases").map(Resolver.sonatypeRepo)
 
 libraryDependencies ++= Seq(
   "org.jsoup" % "jsoup" % "1.7.3",
-  "org.scalatest" % "scalatest_2.10" % "2.1.0" % "test"
+  "org.scalatest" %% "scalatest" % "2.2.1" % "test"
 )
 
 description := "Flexible content block to text"
